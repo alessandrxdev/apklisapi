@@ -4,6 +4,8 @@ Una libreria para comprobar nuevas actualizaciones de aplicaciones en Apklis, as
 ![Java](https://img.shields.io/badge/Java-blue?style=for-the-badge)
 ![](https://img.shields.io/github/v/release/m4gen/apklisapi?style=for-the-badge)
 
+La librería fue creada basándose en la original creada para Kotlin
+[ApklisUpdate](https://github.com/Z17-CU/apklisupdate)
 
 ### Agregar 
 1. Agregar en la raiz de su proyecto
@@ -72,12 +74,12 @@ if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
 Vista previa:
 <p align="center">
 
-<img src="./preview/new-version.png" width="40%">
+<img src="./preview/new-version.png" width="70%">
 
 </p>
 
 
 
-### Otros 
-La librería fue creada basándose en la original creada para Kotlin
-[ApklisUpdate](https://github.com/Z17-CU/apklisupdate)
+### Contacto
+
+alessrodriguez98@gmail.com
