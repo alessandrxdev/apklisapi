@@ -1,4 +1,8 @@
 ## ApklisApi 🦋
+Una libreria para comprobar nuevas actualizaciones de aplicaciones en Apklis, así como la comprobación de compra de aplicaciones en dicha tienda.
+
+![Java](https://img.shields.io/badge/Java-blue?style=for-the-badge)
+
 
 
 ### Agregar 
