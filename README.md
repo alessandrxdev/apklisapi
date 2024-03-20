@@ -74,7 +74,7 @@ if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
 Vista previa:
 <p align="center">
 
-<img src="./preview/new-version.png" width="70%">
+<img src="./preview/screen.png" width="70%">
 
 </p>
 
