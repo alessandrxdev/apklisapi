@@ -68,7 +68,7 @@ publishing {
     publications {
         register<MavenPublication>("release") {
             groupId = "com.github.m4gen"
-            artifactId = "apklislib"
+            artifactId = "apklisapi"
             version = "1.0.0-alpha1"
 
             afterEvaluate {
