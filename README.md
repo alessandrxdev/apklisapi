@@ -69,7 +69,12 @@ if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
 }
 ```
 
-Vista previa: 
+Vista previa:
+<p align="center">
+
+<img src="./preview/new-version.png" width="40%">
+
+</p>
 
 
 
