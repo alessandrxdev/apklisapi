@@ -3,8 +3,10 @@ package com.arr.example;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.arr.apklislib.payments.ApklisPay;
 import com.arr.apklislib.ui.ApklisUpdateDialog;
 import com.arr.apklislib.update.ApklisUpdate;
 import com.arr.apklislib.update.callback.UpdateCallback;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         ApklisUpdate api = new ApklisUpdate(this);
         api.checkLastUpdate(
-                "cu.sitrans.viajando",
+                this.getPackageName(),
                 new UpdateCallback() {
                     @Override
                     public void onLastUpdate(LastRelease info) {
@@ -43,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onError(Exception e) {}
                 });
+
+        
+        // comprobar si se ha pagado la apk
+        ApklisPay paid = new ApklisPay(this, this.getPackageName());
+        if (paid.isPaid()) {
+            Toast.makeText(this, "App pagada", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "App No pagada", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

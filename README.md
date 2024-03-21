@@ -7,6 +7,13 @@ Una libreria para comprobar nuevas actualizaciones de aplicaciones en Apklis, as
 La librería fue creada basándose en la original creada para Kotlin
 [ApklisUpdate](https://github.com/Z17-CU/apklisupdate)
 
+<p align="center">
+
+<img src="./preview/screen.png" width="60%">
+
+</p>
+
+
 ### Agregar 
 1. Agregar en la raiz de su proyecto
 
@@ -23,7 +30,7 @@ implementation 'com.github.m4gen:apklisapi:1.0.0-alpha2'
 ```
 
 ### Uso
-Para comprobar si existe una nueva versión en Apklis debe usar `ApklisUpdate` 
+📝 Comprobar si existe una nueva versión en Apklis debe usar `ApklisUpdate` 
 
 ```java
 ApklisUpdate api = new ApklisUpdate(this);
@@ -48,10 +55,12 @@ Desde `LastRelease` podrá extraer información como:
 `info.appSize(); // int`
 `info.appChangelog(); // String`
 
+💳 Comprobar compra de la aplicación
+
 ### Extra
 La librería también incluye una vista personalizada con la información de la nueva versión, pero no es obligatorio usarla, usted puede crear su propia lógica, ya sea un AlertDialog, Notificación o Fragment, ponga su imaginación a volar.
 
-Modo de uso de la vista personalizada:
+Modo de uso de la [vista](https://github.com/m4gen/apklisapi/blob/main/app/src/main/java/com/arr/example/MainActivity.java) personalizada:
 ```java
 Spanned changelog = formatHtmlString(info.appChangelog());
 
@@ -71,15 +80,8 @@ if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
 }
 ```
 
-Vista previa:
-<p align="center">
-
-<img src="./preview/new-version.png" width="70%">
-
-</p>
-
-
-
 ### Contacto
+
+Si tiene aguna duda o sugerencia me puede contactar a:
 
 alessrodriguez98@gmail.com
