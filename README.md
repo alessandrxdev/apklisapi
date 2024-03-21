@@ -57,6 +57,16 @@ Desde `LastRelease` podrá extraer información como:
 
 💳 Comprobar compra de la aplicación
 
+```java
+ApklisPay paid = new ApklisPay(this, this.getPackageName());
+if (paid.isPaid()) {
+    Toast.makeText(this, "App pagada", Toast.LENGTH_LONG).show();
+} else {
+    Toast.makeText(this, "App No pagada", Toast.LENGTH_LONG).show();
+}
+
+```
+
 ### Extra
 La librería también incluye una vista personalizada con la información de la nueva versión, pero no es obligatorio usarla, usted puede crear su propia lógica, ya sea un AlertDialog, Notificación o Fragment, ponga su imaginación a volar.
 
