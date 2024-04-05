@@ -1,0 +1,38 @@
+name: App / Lint
+
+on:
+  push:
+    branches:
+      - master
+      - release-*
+  pull_request:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-22.04
+    continue-on-error: true
+    strategy:
+      matrix:
+        task: [ detekt, lint ]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Setup Java
+        uses: actions/setup-java@387ac29b308b003ca37ba93a6cab5eb57c8f5f93 # v4.0.0
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@87a9a15658c426a54dd469d4fc7dc1a73ca9d4a6 # v2.10.0
+      - name: Run ${{ matrix.task }} task
+        run: ./gradlew ${{ matrix.task }}
+      - name: Upload SARIF files
+        uses: github/codeql-action/upload-sarif@c0d1daa7f7e14667747d73a7dbbe8c074bc8bfe2 # v2.22.9
+        if: ${{ always() }}
+        with:
+          sarif_file: .

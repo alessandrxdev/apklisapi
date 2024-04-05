@@ -20,6 +20,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    lint {
+        lintConfig = file("$rootDir/android-lint.xml")
+        abortOnError = false
+        sarifReport = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
