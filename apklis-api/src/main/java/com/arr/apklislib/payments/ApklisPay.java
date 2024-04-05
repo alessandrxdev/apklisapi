@@ -5,15 +5,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 
 public class ApklisPay {
+    private static final String TAG = "ApklisPay";
+    private static final String APKLIS_URL = "content://cu.uci.android.apklis.payment.provider/app/";
+    private static final String APK_PAID = "paid";
+    private static final String USER = "user_name";
 
-    private String APKLIS_URL = "content://cu.uci.android.apklis.payment.provider/app/";
-    private String APK_PAID = "paid";
-    private String USER = "user_name";
-
-    private Context mContext;
-    private String packageName;
+    private final Context mContext;
+    private final String packageName;
 
     private boolean isPaid = false;
     private String usuario = null;
@@ -34,8 +35,10 @@ public class ApklisPay {
                 Cursor cursor = content.query(provider, null, null, null, null);
                 if (cursor != null) {
                     if (cursor.moveToFirst()) {
-                        isPaid = cursor.getInt(cursor.getColumnIndex(APK_PAID)) > 0;
-                        usuario = cursor.getString(cursor.getColumnIndex(USER));
+                        int paidColumnIndex = cursor.getColumnIndex(APK_PAID);
+                        int userColumnIndex = cursor.getColumnIndex(USER);
+                        isPaid = cursor.getInt(paidColumnIndex) > 0;
+                        usuario = cursor.getString(userColumnIndex);
                     }
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         content.close();
@@ -46,7 +49,8 @@ public class ApklisPay {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e(TAG, "checkPayment: Fail", e);
+            ;
         } finally {
             if (content != null && Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
                 content.release();

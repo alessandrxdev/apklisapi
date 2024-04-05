@@ -1,0 +1,225 @@
+{
+  "count": 1,
+  "next": null,
+  "previous": null,
+  "facets": {},
+  "results": [
+    {
+      "icon": "https://archive.apklis.cu/application/icon/com.arr.simple-v50.png",
+      "background": "",
+      "package_name": "com.arr.simple",
+      "name": "SIMple",
+      "video_url": "",
+      "video_img": "",
+      "description": "<p>SIMple es una aplicación altamente funcional y versátil diseñada para simplificar y optimizar la gestión de paquetes de datos, llamadas y conexiones a redes WiFi y Nauta Hogar. Con una interfaz intuitiva y amigable, SIMple ofrece una amplia gama de características y funcionalidades que permiten a los usuarios tener un control completo sobre sus servicios de comunicación.</p><p><strong>CONTACTO</strong></p><p><a href=\"https://t.me/applifycu\">Telegram</a></p><p><a href=\"https://x.com/applifycu\">Twitter</a></p>",
+      "updated": "2024-01-19T04:09:06.324050+00:00",
+      "sale_count": 0,
+      "download_count": 3196,
+      "price": 0.0,
+      "rating": 4.2,
+      "sponsored": 0,
+      "with_db": false,
+      "reviews_star_1": 1,
+      "reviews_star_2": 0,
+      "reviews_star_3": 1,
+      "reviews_star_4": 2,
+      "reviews_star_5": 6,
+      "releases_count": 5,
+      "reviews_count": 10,
+      "categories": [
+        {
+          "name": "Cuba",
+          "icon": "cubans",
+          "group": "Applications",
+          "icon_url": "https://archive.apklis.cu/category/Aplicaciones_y_juegos_cubanos.png"
+        },
+        {
+          "name": "Utilidades",
+          "icon": "utils",
+          "group": "Applications",
+          "icon_url": "https://archive.apklis.cu/category/Utilidades_b48JMjB.png"
+        },
+        {
+          "name": "Herramientas",
+          "icon": "tools",
+          "group": "Applications",
+          "icon_url": "https://archive.apklis.cu/category/Herramientas_y_utilidades_nUE9z86.png"
+        },
+        {
+          "name": "Estilo de vida",
+          "icon": "lifestyle",
+          "group": "Applications",
+          "icon_url": "https://archive.apklis.cu/category/EstiloDeVida.png"
+        }
+      ],
+      "size": 10475495,
+      "last_release": {
+        "developer": "alessandro",
+        "no_abi": true,
+        "version_name": "v5.0-beta",
+        "package_name": "com.arr.simple",
+        "app_name": "SIMple",
+        "version_sdk_name": "Marshmallow 6.0 - 6.0.1",
+        "version_target_sdk_name": 34,
+        "permissions": [
+          {
+            "icon": "",
+            "description": "",
+            "name": "Access network state"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Call phone"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Camera"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Change network state"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Foreground service"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Foreground service connected device"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Internet"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Post notifications"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Read calendar"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Read contacts"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Read external storage"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Read phone numbers"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Read phone state"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Receive boot completed"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Schedule exact alarm"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "System alert window"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Use biometric"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Use exact alarm"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Use fingerprint"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Wake lock"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Write calendar"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Write external storage"
+          },
+          {
+            "icon": "",
+            "description": "",
+            "name": "Dynamic receiver not exported permission"
+          }
+        ],
+        "screenshots": [
+          {
+            "description": "",
+            "img": "https://archive.apklis.cu/application/screenshot/unnamed.webp",
+            "id": 442828
+          },
+          {
+            "description": "",
+            "img": "https://archive.apklis.cu/application/screenshot/unnamed_1_1Oi4VuV.webp",
+            "id": 442829
+          },
+          {
+            "description": "",
+            "img": "https://archive.apklis.cu/application/screenshot/unnamed_2_EpoG7cf.webp",
+            "id": 442830
+          },
+          {
+            "description": "",
+            "img": "https://archive.apklis.cu/application/screenshot/unnamed_3_V36Yywx.webp",
+            "id": 442831
+          }
+        ],
+        "deleted": false,
+        "id": 62604,
+        "changelog": "<ul><li>&nbsp;Corrección de errores con la burbuja flotante en Android 14</li><li>Se agrega la posibilidad de cerrar la burbuja flotante sin tener que ir a los Ajustes. Déjela presionada para cerrarla hasta que vuelva a inicializar la app.</li></ul>",
+        "version_code": 50,
+        "published": "2024-01-19T04:09:06.324050Z",
+        "sha256": "fe33e02eb92134028fc802b4e3f387dbc5a9bb0917965f20e866a52b345d0cac",
+        "size": "9.99 MB",
+        "icon": "https://archive.apklis.cu/application/icon/com.arr.simple-v50.png",
+        "public": true,
+        "beta": false,
+        "version_sdk": "Marshmallow 6.0 - 6.0.1",
+        "version_target_sdk": 34
+      },
+      "developer": {
+        "username": "alessandro",
+        "full_name": "Alessandro Rodríguez",
+        "first_name": "Alessandro Rodríguez",
+        "last_name": ""
+      },
+      "announced": false
+    }
+  ]
+}
