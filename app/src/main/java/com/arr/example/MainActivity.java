@@ -28,16 +28,16 @@ public class MainActivity extends AppCompatActivity {
         // set content view to binding's root
         setContentView(binding.getRoot());
 
-        ApklisUpdate api = new ApklisUpdate(this);
-        api.checkLastUpdate(
-                this.getPackageName(),
+        ApklisUpdate api = new ApklisUpdate.Builder().build();
+        api.hasAppUpdate(
+                this,
                 new UpdateCallback() {
                     @Override
                     public void onLastUpdate(LastRelease info) {
-                        Spanned changelog = formatHtmlString(info.appChangelog());
+                        Spanned changelog = formatHtmlString(info.getChangelog());
                         new ApklisUpdateDialog(MainActivity.this)
                                 .setTitle("Nueva Versión")
-                                .setVersion(info.versionName())
+                                .setVersion(info.getVersionName())
                                 .setChangelog(changelog.toString())
                                 .show();
                     }

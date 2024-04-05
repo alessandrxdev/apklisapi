@@ -1,13 +1,10 @@
 package com.arr.apklislib.update.model;
+
 import com.google.gson.annotations.SerializedName;
 
-public class UpdateInfo {
-    
+public class Result {
     @SerializedName("last_release")
     private LastRelease lastRelease;
-    
-    
-    public LastRelease lastRelease(){
-        return lastRelease;
-    }
+
+    public LastRelease getLastRelease() { return lastRelease; }
 }
