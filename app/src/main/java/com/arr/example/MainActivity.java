@@ -1,22 +1,27 @@
 package com.arr.example;
 
+import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
+
 import com.arr.apklislib.payments.ApklisPay;
 import com.arr.apklislib.ui.ApklisUpdateDialog;
 import com.arr.apklislib.update.ApklisUpdate;
 import com.arr.apklislib.update.callback.UpdateCallback;
 import com.arr.apklislib.update.model.LastRelease;
 import com.arr.example.databinding.ActivityMainBinding;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
+import io.reactivex.rxjava3.disposables.Disposable;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private Disposable updateSubscription;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         ApklisUpdate api = new ApklisUpdate.Builder().build();
-        api.hasAppUpdate(
+        updateSubscription = api.hasAppUpdate(
                 this,
                 new UpdateCallback() {
                     @Override
@@ -43,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onError(Exception e) {}
+                    public void onError(Exception e) {
+                        Log.e(TAG, "onError: Not Found", e);
+                    }
                 });
 
         
@@ -60,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         this.binding = null;
+        if (updateSubscription != null && !updateSubscription.isDisposed()) {
+            updateSubscription.dispose();
+        }
     }
 
     private Spanned formatHtmlString(String htmlString) {

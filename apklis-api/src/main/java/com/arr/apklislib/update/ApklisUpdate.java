@@ -9,10 +9,11 @@ import androidx.annotation.NonNull;
 import com.arr.apklislib.update.callback.UpdateCallback;
 import com.arr.apklislib.update.model.LastRelease;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApklisUpdate {
@@ -23,8 +24,8 @@ public class ApklisUpdate {
         this.service = service;
     }
 
-    public void checkLastUpdate(String package_name, final UpdateCallback callback) {
-        service.getPackageResponse(package_name)
+    public Disposable checkLastUpdate(String package_name, final UpdateCallback callback) {
+        return service.getPackageResponse(package_name)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -33,13 +34,11 @@ public class ApklisUpdate {
                     } else {
                         callback.onLastUpdate(response.getResults().get(0).getLastRelease());
                     }
-                }, throwable -> {
-                    callback.onError((Exception) throwable);
-                }).dispose();
+                }, throwable -> callback.onError((Exception) throwable));
     }
 
-    public void hasAppUpdate(@NonNull Context context, UpdateCallback callback) {
-        service.getPackageResponse(context.getPackageName())
+    public Disposable hasAppUpdate(@NonNull Context context, UpdateCallback callback) {
+        return service.getPackageResponse(context.getPackageName())
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -51,9 +50,7 @@ public class ApklisUpdate {
                             callback.onLastUpdate(lastRelease);
                         }
                     }
-                }, throwable -> {
-                    callback.onError((Exception) throwable);
-                }).dispose();
+                }, throwable -> callback.onError((Exception) throwable));
     }
 
     private int getCurrentVersionCode(@NonNull Context context) {
@@ -64,7 +61,6 @@ public class ApklisUpdate {
                     .versionCode;
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(TAG, "getCurrentVersionCode: " + e.getMessage(), e);
-            ;
         }
         return 0;
     }
@@ -79,11 +75,11 @@ public class ApklisUpdate {
 
         public ApklisUpdate build() {
             if (service == null) {
-                String API_URL = "https://api.apklis.cu/v2";
+                String API_URL = "https://api.apklis.cu/v2/";
                 service = new Retrofit.Builder()
                         .baseUrl(API_URL)
                         .addConverterFactory(GsonConverterFactory.create())
-                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                         .build()
                         .create(APKLisService.class);
             }

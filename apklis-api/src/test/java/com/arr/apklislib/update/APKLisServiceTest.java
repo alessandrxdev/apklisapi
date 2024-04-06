@@ -21,7 +21,7 @@ import okhttp3.mockwebserver.RecordedRequest;
 import okio.BufferedSource;
 import okio.Okio;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @RunWith(JUnit4.class)
@@ -37,7 +37,7 @@ public class APKLisServiceTest {
         service = new Retrofit.Builder()
                 .baseUrl(mockWebServer.url("/"))
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build().create(APKLisService.class);
     }
 
