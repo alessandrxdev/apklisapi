@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                                 .setVersion(info.getVersionName())
                                 .setChangelog(changelog.toString())
                                 .show();
+                    
                     }
 
                     @Override

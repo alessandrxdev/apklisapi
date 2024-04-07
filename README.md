@@ -7,13 +7,6 @@ Una libreria para comprobar nuevas actualizaciones de aplicaciones en Apklis, as
 La librería fue creada basándose en la original creada para Kotlin
 [ApklisUpdate](https://github.com/Z17-CU/apklisupdate)
 
-<p align="center">
-
-Ejemplo
-<img src="./preview/screen.png" width="60%">
-
-</p>
-
 
 ### Agregar 
 1. Agregar en la raiz de su proyecto
@@ -27,36 +20,41 @@ repositories {
 
 2. Agregar en su `build.gradle`
 ```groovy
-implementation 'com.github.m4gen:apklisapi:1.0.0-alpha3'
+implementation 'com.github.m4gen:apklisapi:1.0.0-alpha4'
 ```
 
 ### Uso
-📝 Comprobar si existe una nueva versión en Apklis debe usar `ApklisUpdate` 
+📝 **Comprobar si existe una nueva versión**
 
 ```java
-ApklisUpdate api = new ApklisUpdate(this);
-api.checkLastUpdate(PACKAGE_NAME, new UpdateCallback() {
-@Override
-public void onLastUpdate(LastRelease info) {
-/* En caso de existir una nueva version LastRelease
- * arroja la información de esa nueva versión
- */ 
+
+private Disposable updateSubscription;
+
+ApklisUpdate api = new ApklisUpdate.Builder().build();
+updateSubscription = api.hasAppUpdate(this, new UpdateCallback() {
+    @Override
+    public void onLastUpdate(LastRelease info) {
+    /* En caso de existir una nueva version LastRelease
+     * arroja la información de esa nueva versión
+     */ 
 }
-@Override
-public void onError(Exception e) {
-// error 
+   @Override
+   public void onError(Exception e) {
+    Log.e(TAG, e.getMessage);
    }
 });
 ```
 
 Desde `LastRelease` podrá extraer información como:
 
-`info.versionName(); // String` 
-`info.versionCode(); // int`
-`info.appSize(); // int`
-`info.appChangelog(); // String`
+- Versión Name: `getVersionName();`
+- Versión Code: `getVersionCode();`
+- Tamaño de la apk: `getSize();`
+- Registro de cambios: `getChangelog();`
 
-💳 Comprobar compra de la aplicación
+existe más información que puede extrar usando LastRelease.
+
+💳 **Comprobar compra de la aplicación**
 
 ```java
 ApklisPay paid = new ApklisPay(this, this.getPackageName());
@@ -90,6 +88,12 @@ if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
      }
 }
 ```
+#### Ejemplo 
+<p align="center">
+
+<img src="./preview/screen.png" width="60%">
+
+</p>
 
 ### Contacto
 

@@ -74,7 +74,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "com.github.m4gen"
             artifactId = "apklisapi"
-            version = "1.0.0-alpha3"
+            version = "1.0.0-alpha4"
 
             afterEvaluate {
                 from(components["release"])
