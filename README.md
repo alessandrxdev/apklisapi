@@ -20,7 +20,7 @@ repositories {
 
 2. Agregar en su `build.gradle`
 ```groovy
-implementation 'com.github.m4gen:apklisapi:1.0.0-alpha4'
+implementation 'com.github.alessandrxdev:apklisapi:1.0.0-alpha4'
 ```
 
 ### Uso
